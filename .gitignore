@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+notebooks
+IMDb movies.csv
+IMDb names.csv
+IMDb title_principals.csv
