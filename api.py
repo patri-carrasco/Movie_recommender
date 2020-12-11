@@ -9,5 +9,3 @@ import src.posdata  as pos
 import src.sentiment as sen
 import json
 
-#Start:  sudo systemctl start mongod
-#status: sudo systemctl  status mongod
