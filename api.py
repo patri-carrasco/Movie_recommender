@@ -13,6 +13,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+  
   readme_file = open("index.md","r")
   md_template_string = markdown.markdown(readme_file.read(), extensions = ["fenced_code"])
   return md_template_string
