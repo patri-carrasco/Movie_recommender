@@ -27,6 +27,14 @@ def get_genre(genre):
 
 
 
+@app.route("/title/<title>")
+def get_title(title):
+    
+    film = get.get_title(title)
+    
+    return json.dumps(film)
+
+
 
 
 
