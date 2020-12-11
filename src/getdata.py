@@ -9,11 +9,11 @@ def get_genre(genre):
       return:
        film = titulo película
   """
-  print(f'dentro de ger_genre {genre}')  
+   
   film_dict = {}
-  query = "SELECT title,avg_vote FROM title_movies 	WHERE genre = 'Action' order by avg_vote DESC;"
+  query = f"SELECT title,avg_vote FROM title_movies WHERE genre = '{genre}' order by avg_vote DESC;"
   film = list(conn.execute(query))[0]
   film_dict['film']= film[0]
   film_dict['ratings'] = film[1]
-  print(film_dict)  
+  
   return film_dict
