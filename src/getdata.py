@@ -9,12 +9,21 @@ def get_genre(genre):
       return:
        film = titulo película
   """
-   
-  film_dict = {}
+  cont = 0 
+  film_dict = []
+  #query = f"SELECT genre FROM title_movies WHERE genre LIKE '%Action%';" #comprobar que hay mas géneros que contengan Action
   query = f"SELECT title,avg_vote FROM title_movies WHERE genre = '{genre}' order by avg_vote DESC;"
-  film = list(conn.execute(query))[0]
-  film_dict['film']= film[0]
-  film_dict['ratings'] = film[1]
+  
+  film = list(conn.execute(query))
+  while cont <= 7:
+    film_dict.append({
+      'title': film[cont][0],
+      'rating': film[cont][1]
+      #trailer 
+    })
+    
+    cont+=1
+    
   
   return film_dict
 
