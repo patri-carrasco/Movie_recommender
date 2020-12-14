@@ -31,4 +31,4 @@ def clean_data_recommender():
     data.reset_index(inplace=True, drop=True)
 
     # Guardamos los datos
-    data.to_csv("../data/data.csv")
+    data.to_csv("./data/data_best_ratings.csv")
