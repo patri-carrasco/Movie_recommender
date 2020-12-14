@@ -15,10 +15,10 @@ data = data.drop(['production_company','budget','production_company','writer'],a
 print(data.description.head(3))
 
 tfidf = TfidfVectorizer(stop_words='english')
+data3 = data.iloc[:30000]
+data3['description'] = data3['description'].fillna('')
 
-data['description'] = data['description'].fillna('')
-
-tfidf_matrix = tfidf.fit_transform(data['description'])
+tfidf_matrix = tfidf.fit_transform(data3['description'])
 
 
 cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
