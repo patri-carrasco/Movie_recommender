@@ -133,3 +133,4 @@ notebooks
 IMDb movies.csv
 IMDb names.csv
 IMDb title_principals.csv
+__pycache__
