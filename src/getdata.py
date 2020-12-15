@@ -1,4 +1,5 @@
 from config.configuration import conn 
+import  src.gettrailer as get
 
 
 def get_genre(genre):
@@ -18,8 +19,8 @@ def get_genre(genre):
   while cont <= 7:
     film_dict.append({
       'title': film[cont][0],
-      'rating': film[cont][1]
-      #trailer 
+      'rating': film[cont][1],
+      'trailer': get.get_trailer(film[cont][0])
     })
     
     cont+=1
