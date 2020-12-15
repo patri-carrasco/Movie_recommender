@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import  src.clean_data_recommender as cl
-
+import  src.gettrailer as gett
 #Añadimos los datos para analizar con el recommendador
 
 def get_recommendations(title):
@@ -46,7 +46,8 @@ def get_recommendations(title):
   titles_dict = []
   for i in movie_indices:
       titles_dict.append({
-          'title': data['original_title'].iloc[i]
+          'title': data['original_title'].iloc[i],
+          'trailer': gett.get_trailer(data['original_title'].iloc[i])
       })
   
   # Devolvemos las 10 películas más similares
