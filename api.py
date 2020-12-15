@@ -6,7 +6,7 @@ import markdown.extensions.fenced_code
 
 import  src.getdata as get
 import src.recommender  as rec
-#import src.sentiment as sen
+
 import json
 
 app = Flask(__name__)
