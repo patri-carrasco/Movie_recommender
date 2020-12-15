@@ -1,5 +1,5 @@
 from config.configuration import conn 
-import  src.gettrailer as get
+import  src.gettrailer as gett
 
 
 def get_genre(genre):
@@ -20,7 +20,7 @@ def get_genre(genre):
     film_dict.append({
       'title': film[cont][0],
       'rating': film[cont][1],
-      'trailer': get.get_trailer(film[cont][0])
+      'trailer': gett.get_trailer(film[cont][0])
     })
     
     cont+=1
@@ -43,7 +43,6 @@ def get_title(title):
   query = f"SELECT genre FROM title_movies WHERE title = '{title}';"
   
   genre = list(conn.execute(query))
-  print(f' fkgjaflñkga {genre[0][0]}')
   film_dict = get_genre(genre[0][0])
   
   return film_dict
