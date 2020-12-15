@@ -9,7 +9,7 @@ def get_trailer(title):
         return:
             url: url donde esta almacenadoel trailer
     """  
-    driver = webdriver.Chrome("../chromedriver")
+    driver = webdriver.Chrome("./chromedriver")
 
     driver.get("https://www.imdb.com/")
 
@@ -27,11 +27,15 @@ def get_trailer(title):
     film[0].click()
 
     #Buscamos el trailer
-    trailer = film = driver.find_elements_by_css_selector("div.slate")
-    trailer[0].click()
-
-    # Obtenemos la url del trailer
-    url = driver.current_url
+    trailer  = driver.find_elements_by_css_selector("div.slate")
+    try:
+        trailer[0].click()
+        # Obtenemos la url del trailer
+        url = driver.current_url
+    except:
+        url = 'Trailer not found'
     driver.close()
+   
+    
 
     return url
