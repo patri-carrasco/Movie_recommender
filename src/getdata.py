@@ -1,6 +1,6 @@
 from config.configuration import conn 
 import  src.gettrailer as gett
-
+import pandas as pd
 
 def get_genre(genre):
   """
@@ -68,3 +68,20 @@ def get_title(title):
       'error_msg': '',
       'data' : film_dict
        }
+
+def get_data_visual():
+  return  {
+    'by_genre': get_genre_data(),
+    }
+
+def get_genre_data():
+  query = f"SELECT COUNT(original_title) as  total , genre FROM title_movies WHERE genre not like'%%,%%'  group by genre order by total DESC;"
+  data = list(conn.execute(query))
+  data_genre= []
+  
+  for i in range(0,len(data)):
+    data_genre.append({
+      'total':data[i][0],
+      'genre':data[i][1]
+    })
+  return data_genre
