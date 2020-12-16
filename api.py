@@ -7,9 +7,12 @@ import markdown.extensions.fenced_code
 import  src.getdata as get
 import src.recommender  as rec
 
+from flask_cors import CORS
+
 import json
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def index():
@@ -43,7 +46,10 @@ def recommender_system(title):
   titles = rec.get_recommendations(title)
   return json.dumps(titles)
 
-
+@app.route("/data")
+def get_data_visual():
+  data = get.get_data_visual()
+  return json.dumps(data)
 
 
 
