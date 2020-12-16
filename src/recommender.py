@@ -9,12 +9,28 @@ import  src.gettrailer as gett
 def get_recommendations(title):
   
   try:
-    data = pd.read_csv("./data/data_ratings.csv",low_memory=False)
+    data = pd.read_csv("./data/data_best_ratings.csv",low_memory=False)
   except:
     cl.clean_data_recommender
     data = pd.read_csv("./data/data_best_ratings.csv",low_memory=False)
 
- 
+  print('entra a get')
+  #Construir un mapa inverso de índices y títulos de películas
+  indices = pd.Series(data.index, index=data['original_title']).drop_duplicates()
+  
+  # Obtenemos el índice de la película que coincide con el título
+  
+  # Control de errores por si no está la película o esta mal escrita
+  try:
+    idx = indices[title]
+    print(idx)
+  except:
+    return {
+      'status':500,
+      'error_msg': f'Title {title} not found',
+      'data': []
+       }
+  
   tfidf = TfidfVectorizer(stop_words='english')
   
   #Construimos la matrix TF-IDF
@@ -24,12 +40,6 @@ def get_recommendations(title):
   cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
   
 
-  #Construir un mapa inverso de índices y títulos de películas
-  indices = pd.Series(data.index, index=data['original_title']).drop_duplicates()
-
-  # Obtenemos el índice de la película que coincide con el título
-  idx = indices[title]
-  
   # Obtenemos las puntuaciones de similitud por pares de todas las películas con esa película
   sim_scores = list(enumerate(cosine_sim[idx]))
   
@@ -51,6 +61,10 @@ def get_recommendations(title):
       })
   
   # Devolvemos las 10 películas más similares
-  return titles_dict
-
+  return {
+      'status':200 ,
+      'error_msg': '',
+      'data' : titles_dict
+       }
+  
   
