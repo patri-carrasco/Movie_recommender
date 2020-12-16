@@ -16,7 +16,13 @@ def get_genre(genre):
   #query = f"SELECT title,avg_vote FROM title_movies WHERE genre = '{genre}' order by avg_vote DESC;"
   
   film = list(conn.execute(query))
-  
+  if len(film) == 0:
+    return {
+      'status':500,
+      'error_msg': f'Genre {genre} not found',
+      'data': []
+       }
+
   while cont <= 3:
     film_dict.append({
       'title': film[cont][0],
@@ -27,7 +33,11 @@ def get_genre(genre):
     cont+=1
     
   
-  return film_dict
+  return {
+      'status':200 ,
+      'error_msg': '',
+      'data' : film_dict
+       }
 
 
 def get_title(title):
@@ -44,6 +54,17 @@ def get_title(title):
   query = f"SELECT genre FROM title_movies WHERE title = '{title}';"
   
   genre = list(conn.execute(query))
+  if len(genre) == 0:
+    return {
+      'status':500,
+      'error_msg': f'Title {title} not found',
+      'data': []
+       }
+
   film_dict = get_genre(genre[0][0])
   
-  return film_dict
+  return {
+      'status':200 ,
+      'error_msg': '',
+      'data' : film_dict
+       }
