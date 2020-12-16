@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 from flask import Flask, request
 from flask import request
@@ -22,10 +22,12 @@ def index():
 
 @app.route("/genre/<genre>")
 def get_genre(genre):
-    print(genre)
-    film = get.get_genre(genre)
+    # print(genre)
+    # film = get.get_genre(genre)
     
-    return json.dumps(film)
+    # return json.dumps(film)
+    film = [{'title': 'Ek', 'rating': 9.8, 'trailer': 'https://www.imdb.com/video/vi712424985?playlistId=tt12492650&ref_=tt_ov_vi'}, {'title': 'Il cavaliere oscuro', 'rating': 9.0, 'trailer': 'https://www.imdb.com/video/vi324468761?playlistId=tt0468569&ref_=tt_ov_vi'}, {'title': 'Ramayana: The Legend of Prince Rama', 'rating': 9.0, 'trailer': None}]
+    return render_template('podium.html', data = film)
 
 
 

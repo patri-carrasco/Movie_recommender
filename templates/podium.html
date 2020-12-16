@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Titulo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+</head>
+
+<body>
+
+
+  <div class="main-wrapper">
+    <h1>Podium</h1>
+    <div class="podium">
+      <div class="item second">
+          <h1 class="position">2</h1>
+          <div class="title">
+            {{data[1].title}}
+          </div>
+          {{data[1].rating}}
+          {% if data[1].trailer %}
+          <a href={{data[1].trailer}} target="_blank">Trailer</a>
+          {% endif %}        </div>
+      </div>
+
+      <div class="item first">
+          <h1 class="position">1</h1>
+          <div class="title">
+            {{data[0].title}}
+          </div>
+          {{data[0].rating}}
+          {% if data[0].trailer %}
+          <a href={{data[0].trailer}} target="_blank">Trailer</a>
+          {% endif %}        </div>
+      </div>
+
+      <div class="item third">
+        <h1 class="position">3</h1>
+          <div class="title">
+            {{data[2].title}}
+          </div>
+          {{data[2].rating}}
+          {% if data[2].trailer %}
+          <a href={{data[2].trailer}} target="_blank">Trailer</a>
+          {% endif %}
+        </div>
+      </div>
+  </div>
+</body>
+
+</html>

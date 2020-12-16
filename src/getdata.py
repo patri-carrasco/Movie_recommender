@@ -10,7 +10,7 @@ def get_genre(genre):
       return:
        film = titulo película
   """
-  cont = 0 
+  cont = 1 
   film_dict = []
   query = f"SELECT title, avg_vote FROM title_movies WHERE genre LIKE '%%{genre}%%' order by avg_vote DESC;" #comprobar que hay mas géneros que contengan Action
   #query = f"SELECT title,avg_vote FROM title_movies WHERE genre = '{genre}' order by avg_vote DESC;"

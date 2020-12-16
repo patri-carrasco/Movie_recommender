@@ -1,0 +1,36 @@
+body {
+  background-color: black;  
+}
+.main-wrapper {
+  margin: 0 auto;
+  width: 800px;
+  height: 600px;
+  background-color: white;
+}
+
+.podium {
+  display: flex;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 2px solid black;
+}
+
+.title {
+  color: red;
+}
+
+#first {
+  height: 300px;
+}
+
+#second {
+  height: 250px;
+}
+
+#third {
+  height: 200px;
+}

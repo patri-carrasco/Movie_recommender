@@ -33,7 +33,7 @@ def get_trailer(title):
         # Obtenemos la url del trailer
         url = driver.current_url
     except:
-        url = 'Trailer not found'
+        url = None
     driver.close()
    
     
