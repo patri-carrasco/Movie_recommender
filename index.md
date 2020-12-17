@@ -9,17 +9,20 @@
 ## Endoint Género 
 ### /genre/género_que_desea_ver
 
-    Con este endpoint le recomendamos 7 películas con el mejor rating y el trailer de cada película
+    Con este endpoint le recomendamos 3 películas con el mejor rating y el trailer de cada película
 
 
 ## Endoint Título 
 ### /title/Título_que_desea_ver
-    Con este endpoint le recomendamos 7 películas con el mejor rating y el trailer de cada película
+    Con este endpoint le recomendamos 3 películas con el mejor rating y el trailer de cada película
 
 ## Endpoint Recommender
 ### /recommender/Título_por_el_quiere_que_le recomendemos
     Con este endpoint le recomendamos 10 películas basadas en un sistema de recomendación de machine learning y el trailer de cada película
 
 
+## Endpoint Data
+### /data
 
+    Con este endpoint creamos los datos que pasamos al archivo script.js para las visualizaciones de las gráficas.
 
