@@ -72,7 +72,8 @@ def get_title(title):
 def get_data_visual():
   return  {
     'by_genre': get_genre_data(),
-    'by_year': get_year_data()
+    'by_year': get_year_data(),
+    'by_rating':get_rating_data()
     }
 
 def get_genre_data():
@@ -99,3 +100,15 @@ def get_year_data():
       'year':data[i][1]
     })
   return data_year
+
+def get_rating_data():
+  query = f"SELECT COUNT(original_title) as  total , round(avg_vote) as ratings FROM title_movies  group by ratings  order by ratings DESC;"
+  data = list(conn.execute(query))
+  data_rating= []
+  
+  for i in range(0,len(data)):
+    data_rating.append({
+      'total':data[i][0],
+      'rating':data[i][1]
+    })
+  return data_rating
