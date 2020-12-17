@@ -72,6 +72,7 @@ def get_title(title):
 def get_data_visual():
   return  {
     'by_genre': get_genre_data(),
+    'by_year': get_year_data()
     }
 
 def get_genre_data():
@@ -85,3 +86,16 @@ def get_genre_data():
       'genre':data[i][1]
     })
   return data_genre
+
+
+def get_year_data():
+  query = f"SELECT COUNT(original_title) as  total , year FROM title_movies where year > 2000  group by year order by total DESC;"
+  data = list(conn.execute(query))
+  data_year= []
+  
+  for i in range(0,len(data)):
+    data_year.append({
+      'total':data[i][0],
+      'year':data[i][1]
+    })
+  return data_year
