@@ -94,10 +94,7 @@ Eliminamos las palabras vacías como 'el', 'una', etc. ya que no brindan ninguna
 Reemplazamos los valores que no sean un número con una cadena en blanco;
 Finalmente, construimos la matriz TF-IDF sobre los datos.
 
-### Cosine similarity 
-Utilizaremos la similitud de coseno para calcular una cantidad numérica que denota la similitud entre dos películas.
-Utilizaremos la puntuación de similitud de coseno ya que es independiente de la magnitud y es relativamente fácil y rápido de calcular
-
+### Similarity 
 Dado que hemos utilizado el vectorizador TF-IDF, calcular el producto escalar entre cada vector nos dará directamente la puntuación de similitud del coseno. Por lo tanto, usaremos linear_kernel () de sklearn en lugar de cosine_similarities () ya que es más rápido.
 
 ### Construir un mapa inverso de índices y títulos de películas
