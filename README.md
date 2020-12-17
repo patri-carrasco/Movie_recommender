@@ -6,6 +6,7 @@
   </a>
 </div>
 
+
 # Recomendador
 Por limitaciones técnicas del equipo con el que estoy trabajando no podemos tratar con todos los datos del archivo IMDb movies.csv. Por esto vamos a tener que limitar los datos. 
 Vamos a ir contando como eliminamos los datos hasta llegar a ese número de películas. 
