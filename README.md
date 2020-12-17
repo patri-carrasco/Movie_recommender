@@ -1,4 +1,4 @@
-# Recomendador de películas.
+# **Recomendador de películas.**
 
 <div align="center">
   <a href="default.asp">
@@ -6,24 +6,24 @@
   </a>
 </div>
 
-# Introducción 
+# **Introducción**
   En este proyecto final vamos a hacer un recomendador de películas.
 
   Para ello hemos creado una API para ofrecer al cliente nuestras recomendaciones a medida que el cliente nos diga sus géneros o películas favoritas. 
 
-# Estructura del repo
+# **Estructura del repo**
   Hemos estructurado el proyecto en varios archivos y carpetas para que sea más fácil su entendimiento.
 
-  Config: carpeta que usamos para la configuración básica del proyecto.
+  **config:** carpeta que usamos para la configuración básica del proyecto.
 
-  data:  carpeta donde va los archivos datos.
+  **data:**  carpeta donde va los archivos datos.
   
-  css: carpeta que contiene los achivos de css para la visualización de datos.
+  **css:** carpeta que contiene los achivos de css para la visualización de datos.
 
-  js: carpeta que contiene los archivos js para la visualización de datos
+  **js:** carpeta que contiene los archivos js para la visualización de datos
 
 
-  src carpeta que guarda todos los archivos de funciones que usamos en este proyecto:
+  **src:** carpeta que guarda todos los archivos de funciones que usamos en este proyecto:
     
     * getdata.py :archivo que tiene las funciones de GET de la api para obtener los datos recomendados.
     * gettrailer.py : archivo que tiene las funciones para obtener los enlaces a los trailers de las películas.
@@ -32,13 +32,14 @@
 
 
 
-api.py: Este es el archivo principal de la API.
+**api.py:** Este es el archivo principal de la API.
 
-index.html: Archivo html de las visualizaciones
+**index.html:** Archivo html de las visualizaciones
 
-index.md: Archivo de la documentación de la API
+**index.md:** Archivo de la documentación de la API
+**Movie recommender.pdf** : Presentación del proyecto
 
-# Recomendador
+# **Recomendador**
 Por limitaciones técnicas del equipo con el que estoy trabajando no podemos tratar con todos los datos del archivo IMDb movies.csv. Por esto vamos a tener que limitar los datos. 
 Vamos a ir contando como eliminamos los datos hasta llegar a ese número de películas. 
 
@@ -73,10 +74,10 @@ data = data.drop(data[data['avg_vote'] < 6.7].index)
 data = data.drop(data[data['year'] < '1960'].index)
 ~~~
 
-## Funcionamiento del recomendador por machine learning
+## **Funcionamiento del recomendador por machine learning**
 
 ### Procesamiento del lenguaje natural. 
- Para calcular las similitudes de y/o disimilitud hay que calcular los vectores de cada palabra de cada descripción. 
+Para calcular las similitudes de y/o disimilitud hay que calcular los vectores de cada palabra de cada descripción. 
  
 
 ### Los vectores de palabras
@@ -144,6 +145,7 @@ Visualización https://github.com/german-alvarez-dev/data-visualization-for-data
     - markdown extensions fenced_code
 
 * Recommender
+
     - sklearn.feature_extraction.text:  TfidfVectorizer
 
     - sklearn.metrics.pairwise:  linear_kernel
