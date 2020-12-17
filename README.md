@@ -6,6 +6,37 @@
   </a>
 </div>
 
+# Introducción 
+  En este proyecto final vamos a hacer un recomendador de películas.
+
+  Para ello hemos creado una API para ofrecer al cliente nuestras recomendaciones a medida que el cliente nos diga sus géneros o películas favoritas. 
+
+# Estructura del repo
+  Hemos estructurado el proyecto en varios archivos y carpetas para que sea más fácil su entendimiento.
+
+  Config: carpeta que usamos para la configuración básica del proyecto.
+
+  data:  carpeta donde va los archivos datos.
+  
+  css: carpeta que contiene los achivos de css para la visualización de datos.
+
+  js: carpeta que contiene los archivos js para la visualización de datos
+
+
+  src carpeta que guarda todos los archivos de funciones que usamos en este proyecto:
+    
+    * getdata.py :archivo que tiene las funciones de GET de la api para obtener los datos recomendados.
+    * gettrailer.py : archivo que tiene las funciones para obtener los enlaces a los trailers de las películas.
+    * clean_data_recommender.py : Limpieza y eliminación de los datos para el recomendador por las limitaciones mas abajo comentadas.
+    * recommender.py : archivo que con tiene las funciones para la recomendaciones de películas con Machine Learning
+
+
+
+api.py: Este es el archivo principal de la API.
+
+index.html: Archivo html de las visualizaciones
+
+index.md: Archivo de la documentación de la API
 
 # Recomendador
 Por limitaciones técnicas del equipo con el que estoy trabajando no podemos tratar con todos los datos del archivo IMDb movies.csv. Por esto vamos a tener que limitar los datos. 
@@ -74,5 +105,45 @@ En primer lugar, para esto, necesitamos un mapeo inverso de títulos de películ
 
 
 # Enlaces usados
+Dataset de películas https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset
 
 Sistema de recomendador: https://www.datacamp.com/community/tutorials/recommender-systems-python
+
+Apuntes de las clases https://github.com/sheriffff/teaching-ironhack-data-madrid-2020
+
+Visualización https://github.com/german-alvarez-dev/data-visualization-for-data-analysts
+
+# Tecnologías usadas
+
+* Configuración interna
+
+    - sys
+
+    - json
+
+    - load_dotenv
+
+    - os
+
+* Tratamiento de datos
+
+    - pandas
+
+    - selenium
+
+    - sqlalchemy
+
+    - Mysql
+
+* Api
+
+    - flask, Flask, request
+
+    - flask_cors, CORS
+
+    - markdown extensions fenced_code
+
+* Recommender
+    - sklearn.feature_extraction.text:  TfidfVectorizer
+
+    - sklearn.metrics.pairwise:  linear_kernel
