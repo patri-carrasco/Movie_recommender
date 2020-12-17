@@ -16,6 +16,7 @@ function printCharts(data) {
 
   byGenre(data.by_genre, 'byGenre')
   byYear(data.by_year, 'byYear')
+  byRating(data.by_rating, 'byRating')
 }
 
 function byGenre(res, id) {
@@ -43,7 +44,16 @@ function byGenre(res, id) {
               ticks: {
                   display: true
               }
-          }]
+          }],
+          xAxes: [{
+            gridLines: {
+                display: false
+            },
+            ticks: {
+                display: true
+            }
+            
+        }]
       }
   }
   new Chart(id, { type: 'bar', data, options })
@@ -75,9 +85,41 @@ function byYear(res, id) {
                 ticks: {
                     display: true
                 }
+            }],
+            xAxes: [{
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    display: true
+                }
+                
             }]
         }
     }
     new Chart(id, { type: 'bar', data, options })
+  
+  }
+
+  function byRating(res, id) {
+    // const res = data.filter(item => item.total)
+  
+    const data = {
+        labels: res.map(item => item.rating + ' stars'),
+        datasets: [{
+            data: res.map(item => item.total),
+            backgroundColor: styles.color.alphas,
+            borderColor: styles.color.solids
+        }]
+    }
+  
+  
+    const options = {
+      legend: {
+          position: 'left'
+        },
+        
+    }
+    new Chart(id, { type: 'doughnut', data, options })
   
   }
