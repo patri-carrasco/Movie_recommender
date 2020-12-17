@@ -89,7 +89,7 @@ def get_genre_data():
 
 
 def get_year_data():
-  query = f"SELECT COUNT(original_title) as  total , year FROM title_movies where year > 2000  group by year order by total DESC;"
+  query = f"SELECT COUNT(original_title) as  total , year FROM title_movies where year > 2000  group by year order by year DESC;"
   data = list(conn.execute(query))
   data_year= []
   
