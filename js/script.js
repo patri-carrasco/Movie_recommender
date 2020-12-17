@@ -15,6 +15,7 @@ function printCharts(data) {
   document.body.classList.add('running')
 
   byGenre(data.by_genre, 'byGenre')
+  byYear(data.by_year, 'byYear')
 }
 
 function byGenre(res, id) {
@@ -48,3 +49,35 @@ function byGenre(res, id) {
   new Chart(id, { type: 'bar', data, options })
 
 }
+
+function byYear(res, id) {
+    // const res = data.filter(item => item.total)
+  
+    const data = {
+        labels: res.map(item => item.year),
+        datasets: [{
+            data: res.map(item => item.total),
+            backgroundColor: styles.color.alphas,
+            borderColor: styles.color.solids
+        }]
+    }
+  
+  
+    const options = {
+      legend: {
+          display: false
+        },
+        scales: {
+            yAxes: [{
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    display: true
+                }
+            }]
+        }
+    }
+    new Chart(id, { type: 'bar', data, options })
+  
+  }
